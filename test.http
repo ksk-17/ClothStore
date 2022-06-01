@@ -1,0 +1,136 @@
+
+###############################################################
+User Api
+###############################################################
+
+
+POST http://localhost:5000/api/users/register
+content-Type: application/json
+
+{
+    "name": "ram",
+    "email": "ram@gmail.com",
+    "password": "ram"
+}
+
+###
+
+POST http://localhost:5000/api/users/login
+content-Type: application/json
+
+{
+    "email": "ram@gmail.com",
+    "password": "ram"
+}
+
+###
+GET http://localhost:5000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkM2U0N2ZhNjJjODc0NDcyN2VlMSIsImlhdCI6MTY1NDA1MjgzNywiZXhwIjoxNjU2NjQ0ODM3fQ.BzkkscM6EmkSnWqugu-CSTlKNdSZSB55Aea_p7pEBfk
+
+###
+
+PUT http://localhost:5000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkM2U0N2ZhNjJjODc0NDcyN2VlMSIsImlhdCI6MTY1NDA1MjgzNywiZXhwIjoxNjU2NjQ0ODM3fQ.BzkkscM6EmkSnWqugu-CSTlKNdSZSB55Aea_p7pEBfk
+content-Type: application/json
+
+{
+    "name": "ram",
+    "email": "ram@gmail.com",
+    "password": "ram"
+}
+
+
+###
+
+Admin Operations
+
+###
+
+POST http://localhost:5000/api/users/login
+content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+
+GET http://localhost:5000/api/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+
+###
+
+GET http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
+
+###
+PUT http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
+content-Type: application/json
+
+{
+    "name": "ram",
+    "email": "ram@gmail.com",
+    "password": "ram"
+}
+
+###
+
+DELETE http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
+
+
+
+###############################################################
+Product Api
+###############################################################
+
+
+GET http://localhost:5000/api/product/
+
+###
+
+POST http://localhost:5000/api/product/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+content-Type: application/json
+
+###
+
+GET http://localhost:5000/api/product/629784dde601eeb3781985df
+
+###
+
+PUT http://localhost:5000/api/product/629784dde601eeb3781985df
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+content-Type: application/json
+
+{
+    "name":"Polo t-shirt",
+    "price":30000,
+    "description":"Stylish T-shirt with a cozy look",
+    "category":["mens","t-shirt"],
+    "sizes":["L","XL"],
+    "images":[],
+    "countInStock":3
+}
+
+###
+
+POST http://localhost:5000/api/product/629784dde601eeb3781985df/reviews
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkYmY2ZGY1YzM0YzIyMzA1ODc0ZSIsImlhdCI6MTY1NDA5Nzc3NiwiZXhwIjoxNjU2Njg5Nzc2fQ.qdJHgEEp_JKq6iQ1cLQ3oacEn6l7LJIz1dk-MCZxa1s
+content-Type: application/json
+
+{
+    "rating":4.8,
+    "comment": "nice look and good fitting"
+}
+
+###
+
+DELETE http://localhost:5000/api/product/629785c4c6903b044f4363f6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+
+
+
+
