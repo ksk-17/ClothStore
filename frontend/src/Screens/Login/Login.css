@@ -1,0 +1,21 @@
+.Login{
+    display: flex;
+}
+
+.Login .img{
+    flex: 0.6;
+}
+
+.Login .img img{
+    height:50%;
+    margin-top: 10%;
+}
+
+.Login .form{
+    flex: 0.4;
+}
+
+.Login .form Form{
+    margin-top: 10%;
+    width:60%;
+}

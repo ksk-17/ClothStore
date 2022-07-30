@@ -35,16 +35,17 @@ const deleteProduct = asyncHandler(async(req,res)=>{
 });
 
 const createProduct = asyncHandler(async(req,res)=>{
-    
+
+    const {name,price,description,categories,sizes,images,countInStock} = req.body;
+
     const product = new Product({
-        name:'Sample name',
-        price: 0,
-        description: 'sample desc',
-        user: req.user_id,
-        sizes:[],
-        images:[],
-        category:[],
-        countInStock: 0,
+        name:name,
+        price:price,
+        description:description,
+        category:categories,
+        sizes:sizes,
+        images:images,
+        countInStock:countInStock || 0,
         numReviews: 0
     })
 

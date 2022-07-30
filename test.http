@@ -8,9 +8,9 @@ POST http://localhost:5000/api/users/register
 content-Type: application/json
 
 {
-    "name": "ram",
-    "email": "ram@gmail.com",
-    "password": "ram"
+    "name": "a",
+    "email": "a@gmail.com",
+    "password": "a"
 }
 
 ###
@@ -19,8 +19,8 @@ POST http://localhost:5000/api/users/login
 content-Type: application/json
 
 {
-    "email": "ram@gmail.com",
-    "password": "ram"
+    "email": "a@gmail.com",
+    "password": "a"
 }
 
 ###
@@ -34,9 +34,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkM2U0N
 content-Type: application/json
 
 {
-    "name": "ram",
-    "email": "ram@gmail.com",
-    "password": "ram"
+    "name": "a",
+    "email": "a@gmail.com",
+    "password": "a"
 }
 
 
@@ -57,7 +57,7 @@ content-Type: application/json
 ###
 
 GET http://localhost:5000/api/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDBlZDcyMmY2ZDMzNDRkMjRiNjZjNCIsImlhdCI6MTY1Nzg5Njc3NiwiZXhwIjoxNjYwNDg4Nzc2fQ.85W-Ht5WqQDUweZ78jsc4xz5VA3wLVu2LvUQ8OVQ4NE
 
 ###
 
@@ -65,20 +65,21 @@ GET http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
 
 ###
-PUT http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
+PUT http://localhost:5000/api/users/62d1a206ba228e9c52c5c0b2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDBlZDcyMmY2ZDMzNDRkMjRiNjZjNCIsImlhdCI6MTY1Nzg5Njc3NiwiZXhwIjoxNjYwNDg4Nzc2fQ.85W-Ht5WqQDUweZ78jsc4xz5VA3wLVu2LvUQ8OVQ4NE
 content-Type: application/json
 
 {
-    "name": "ram",
-    "email": "ram@gmail.com",
-    "password": "ram"
+    "name": "a",
+    "email": "a@gmail.com",
+    "password": "a",
+    "isAdmin":true
 }
 
 ###
 
-DELETE http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
+DELETE http://localhost:5000/api/users/62cab1168ce41d6c9b58353f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NzQ1MDk5NCwiZXhwIjoxNjYwMDQyOTk0fQ.rwr9YSljnf6BLGNvt6ZPF6FzSrsKql4gBCFxDNUHak0
 
 
 
@@ -92,8 +93,17 @@ GET http://localhost:5000/api/product/
 ###
 
 POST http://localhost:5000/api/product/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDBlZDcyMmY2ZDMzNDRkMjRiNjZjNCIsImlhdCI6MTY1Nzg5Njc3NiwiZXhwIjoxNjYwNDg4Nzc2fQ.85W-Ht5WqQDUweZ78jsc4xz5VA3wLVu2LvUQ8OVQ4NE
 content-Type: application/json
+
+{
+    "name":"y",
+    "price":0,
+    "description":"Dress",
+    "categories":["women"],
+    "sizes":["M","L"],
+    "images":[]
+}
 
 ###
 
@@ -101,18 +111,18 @@ GET http://localhost:5000/api/product/629784dde601eeb3781985df
 
 ###
 
-PUT http://localhost:5000/api/product/629784dde601eeb3781985df
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+PUT http://localhost:5000/api/product/62cb10282f5e3cb76b1c1ed9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NzQ1MDk5NCwiZXhwIjoxNjYwMDQyOTk0fQ.rwr9YSljnf6BLGNvt6ZPF6FzSrsKql4gBCFxDNUHak0
 content-Type: application/json
 
 {
-    "name":"Polo t-shirt",
-    "price":30000,
-    "description":"Stylish T-shirt with a cozy look",
-    "category":["mens","t-shirt"],
-    "sizes":["L","XL"],
+    "name":"AAYU dress",
+    "price":1800,
+    "description":"Women Fit and Flare Black Dress",
+    "categories":["women","tops"],
+    "sizes":["M","L","XL"],
     "images":[],
-    "countInStock":3
+    "countInStock":8
 }
 
 ###
@@ -122,14 +132,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkYmY2Z
 content-Type: application/json
 
 {
-    "rating":4.8,
+    "rating":4,
     "comment": "nice look and good fitting"
 }
 
 ###
 
-DELETE http://localhost:5000/api/product/629785c4c6903b044f4363f6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA5NTc3NSwiZXhwIjoxNjU2Njg3Nzc1fQ.pP3V6OxQnTx2MO83k3SD6f_WvwpZ5XsihCXAyn0w_eo
+DELETE http://localhost:5000/api/product/62cb0b3a2f5e3cb76b1c1eb8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NzQ3NDM4NywiZXhwIjoxNjYwMDY2Mzg3fQ.11564ZoPpok-bEPoi66ING5Ow_HOTAa6SoIv7v5qI-I
 
 
 

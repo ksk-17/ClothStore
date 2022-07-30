@@ -1,0 +1,21 @@
+.Register{
+    display: flex;
+}
+
+.Register .img{
+    flex: 0.6;
+}
+
+.Register .img img{
+    height:50%;
+    margin-top: 10%;
+}
+
+.Register .form{
+    flex: 0.4;
+}
+
+.Register .form Form{
+    margin-top: 10%;
+    width:60%;
+}
