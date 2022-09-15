@@ -81,6 +81,7 @@ const updateUserProfile = asyncHandler(async(req,res)=>{
         if(req.body.password){
             user.password = req.body.password || user.password;
         }
+        user.isAdmin = req.body.admin;
 
         const updatedUser =await user.save();
 

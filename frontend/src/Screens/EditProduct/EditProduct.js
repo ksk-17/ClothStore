@@ -16,6 +16,7 @@ const EditProduct = () => {
 
   const {id} = useParams();
 
+
   const [image1,setImage1] = useState("");
   const [image2,setImage2] = useState("");
   const [image3,setImage3] = useState("");
@@ -24,32 +25,36 @@ const EditProduct = () => {
   const [description,setDescription] = useState("");
   const[price,setPrice]=useState('');
   const[countInStock,setCountInStock]=useState('');
-  const[sizes,setSizes]=useState([]);
-  const[categories,setCategories]=useState([]);
   const[images,setImages]=useState([]);
   const [error,setError] = useState("");
 
   const [sizeValue,setSizeValue] = useState ([false,false,false,false,false]);
   const [categoryValue,setCategoryValue] = useState([false,false,false,false,false,false,false,false,false,false])
 
-  const [product,setProduct] = useState("");
+  const getProductDetails = async()=>{
+    const {data} = await axios.get(`/api/product/${id}`);
+    setProductDetails(data);
+  }
 
-//   const getProduct = async()=>{
-//     const {data} = await axios.get(`/api/product/${id}`);
-//     setProduct(data);
-//   }
+  const setProductDetails = (product) =>{
+    setName(product.name);
+    setDescription(product.description);
+    setPrice(product.price);
+    setCountInStock(product.countInStock);
+    const newSizeValues = ["S","M","L","XL","XXL"].map((size)=> product.sizes.includes(size));
+    setSizeValue(newSizeValues);
+    const newCategoryValues = ["men","women","shirt","t-shirt","jeans","formal","trouser","skirt","dress","watch"].map((category)=> product.category.includes(category));
+    setCategoryValue(newCategoryValues);
+    if(product.images[0]) setImage1(product.images[0]);
+    if(product.images[1]) setImage2(product.images[1]);
+    if(product.images[2]) setImage3(product.images[2]);
+  }
 
-//   const setProductDetails = () =>{
-//     setName(product.name);
-//     setDescription(product.description);
-//     setPrice(product.price);
-//     setCountInStock(product.countInStock);
-//   }
-
-//   useEffect(()=>{
-//     getProduct();
-//     setProductDetails();
-//   })
+  useEffect(()=>{
+    getProductDetails().then(()=>{
+      setProductDetails();
+    })
+  },[]);
 
   const submitHandler = async(e) =>{
     e.preventDefault();
@@ -57,12 +62,12 @@ const EditProduct = () => {
     let sizeEnter = false;
     sizeValue.map((size)=>(
         sizeEnter = sizeEnter || size
-    ))
+    ));
 
     let categoryEnter = false;
     categoryValue.map((category)=>(
         categoryEnter = categoryEnter || category
-    ))
+    ));
 
     if(!name) setError("Enter a Name");
     else if(!description) setError("Enter description");
@@ -71,37 +76,41 @@ const EditProduct = () => {
     else if(!sizeEnter) setError("Select Sizes available");
     else if(!categoryEnter) setError("Select Categories applicable")
     else if(!image1 && !image2 && !image3) setError("Please Select atleast one Image");
-    else setError();
+    else{
 
-    const sizeData = ["S","M","L","XL","XXL"].filter((size,ind)=> sizeValue[ind]);
-    setSizes(sizeData);
+      setError();
 
-    const categoryData = ["men","women","shirt","t-shirt","jeans","formal","trouser","skirt","dress","watch"].filter((category,ind)=> categoryValue[ind]);
-    setCategories(categoryData);
+      const sizes =["S","M","L","XL","XXL"].filter((size,ind)=> sizeValue[ind]);
 
-    setImages([]);
-    if(image1) images.push(image1);
-    if(image2) images.push(image2);
-    if(image3) images.push(image3);
+      const category = ["men","women","shirt","t-shirt","jeans","formal","trouser","skirt","dress","watch"].filter((category,ind)=> categoryValue[ind]);
 
-    // if(!error){
-    //   try{
-    //     const config = {
-    //       headers:{
-    //            "Content-type":"application/json",
-    //            "Authorization":`Bearer ${loginUser.token}`,
-    //       }
-    //     };
+      setImages([]);
+      if(image1) images.push(image1);
+      if(image2) images.push(image2);
+      if(image3) images.push(image3);
 
-    //     const {data} = await axios.post('/api/product',{name,price,description,categories,sizes,images,countInStock},config);
-    //     navigate('/manage/products');
-    //   }
-    //   catch(error){
-    //     const data =  (error.response && error.response.data.message) ? 
-    //     error.response.data.message:
-    //     error.message;
-    //   }
-    // }
+      if(!error){
+        try{
+          const config = {
+            headers:{
+                "Content-type":"application/json",
+                "Authorization":`Bearer ${loginUser.token}`,
+            }
+          };
+    
+          const {data} = await axios.put(`/api/product/${id}`,{name,price,description,category,sizes,images,countInStock},config);
+          console.log(data);
+          navigate('/manage/products');
+        }
+        catch(err){
+          const data =  (err.response && err.response.data.message) ? 
+          err.response.data.message:
+          err.message;
+        }
+      }
+
+    }
+
   }
 
 

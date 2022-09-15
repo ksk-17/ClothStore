@@ -39,6 +39,28 @@ const ManageUsers = () => {
     }
   }
 
+  const updateHandler = async(id)=>{
+
+    console.log(name,email,admin)
+    try{
+      const config = {
+        headers:{
+             "Content-type":"application/json",
+             "Authorization":`Bearer ${loginUser.token}`,
+        }
+      };
+
+      const {data} = await axios.put(`/api/users/${id}`,{name,email,admin},config);
+    }
+    catch(error){
+      const data =  (error.response && error.response.data.message) ? 
+        error.response.data.message:
+        error.message;
+    }
+
+    setShowModal(false);
+  }
+
   const deleteHandler=async(id)=>{
     try{
       const config = {
@@ -82,6 +104,8 @@ const ManageUsers = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{(user.isAdmin)?<span className="text-success">Yes</span>:<span className="text-danger">No</span>}</td>
+
+
               <Modal show={showModal} onHide={()=>setShowModal(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Edit User</Modal.Title>
@@ -101,7 +125,7 @@ const ManageUsers = () => {
                       <Form.Control type="email" placeholder="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <input type="checkbox" id="Admin" value={admin} defaultChecked={admin} onChange={(e)=>{setAdmin(e.target.value)}}/>
+                        <input type="checkbox" id="Admin" value={admin} defaultChecked={admin} onChange={(e)=>{setAdmin(!admin)}}/>
                         <label className="ms-1" for="Admin">Admin</label>
                     </Form.Group>
                   </Form>
@@ -110,11 +134,13 @@ const ManageUsers = () => {
                   <Button variant="secondary" onClick={()=>setShowModal(false)}>
                     Cancel
                   </Button>
-                  <Button variant="success">
+                  <Button variant="success" onClick={()=>updateHandler(user._id)}>
                     Update
                   </Button>
                 </Modal.Footer>
               </Modal>
+
+
               <td className="p-2">
                 <Button className="ms-2"  onClick={()=>{
                   setShowModal(true);

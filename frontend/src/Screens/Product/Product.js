@@ -13,14 +13,14 @@ const Product = () => {
     const [rating,setRating]=useState("");
     const [comment,setComment] = useState("");
     const [error,setError] = useState('');
-
-
+    const [displayImage,setDisplayImage] = useState('');
 
     const {id} = useParams();
 
     const getProductDetails = async()=>{
         const {data} = await axios.get(`/api/product/${id}`);
         setProduct(data);
+        setDisplayImage(data.images[0]);
     }
 
     const getUser = () =>{
@@ -70,8 +70,13 @@ const Product = () => {
   return (
     <div className="bg-light p-3">
       <div className='row'>
-        <div className="col-lg-6">
-          {/* <img src={product.images[0]}></img> */}
+        <div className="col-lg-6 d-flex mb-3">
+          <div className="d-flex flex-column">
+            {( product.images && product.images.length)? product.images.map((img)=>(
+              <img height="100px" className="mb-2 border-2" src={img} onClick={()=>{setDisplayImage(img)}}></img>
+            )):<></>}
+          </div>
+          {( product.images && product.images.length)?<img height="500px" className='mx-auto' src={displayImage}></img>:<></>}
         </div>
         <div className='col-lg-6'>
           <h3>{product.name}</h3>
@@ -83,18 +88,18 @@ const Product = () => {
               <strong>Size</strong>
               <select className="form-select w-25" aria-label="Default select example">
                 <option selected>Choose an Option</option>
-                {/* {product.sizes.map((size,ind)=>(
+                {product.sizes && product.sizes.map((size,ind)=>(
                   <option value={size} key="ind">{size}</option>
-                ))} */}
+                ))}
               </select>
             </div>
             <div className="mt-2">
               <strong>Status:</strong>{(product.coutInStock!==0)?<span className="text-success"> Available</span>:<span className="text-danger"> Out of Stock</span>}
             </div>
-            <div className="mt-2">
-              {/* <strong>Category:</strong>{product.category.map((category)=>(
-                <span class="badge bg-secondary">{category}</span>
-              ))} */}
+            <div className="mt-2 d-flex">
+              <strong>Category:</strong>{ product.category && product.category.map((category)=>(
+                <div className="mx-2 border p-1 rounded">{category}</div>
+              ))}
             </div>
             <div className="mt-2">
               <strong>Delivery location:</strong>

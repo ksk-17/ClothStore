@@ -65,14 +65,14 @@ GET http://localhost:5000/api/users/6296d3e47fa62c8744727ee1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTZkOWQ0MzhhNzM3MjJiNzFiNWU5OCIsImlhdCI6MTY1NDA1MzM4OSwiZXhwIjoxNjU2NjQ1Mzg5fQ.mSWR38-opqEDyVEEka9nALGhgja-DlyAxTB1zp1G2qM
 
 ###
-PUT http://localhost:5000/api/users/62d1a206ba228e9c52c5c0b2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDBlZDcyMmY2ZDMzNDRkMjRiNjZjNCIsImlhdCI6MTY1Nzg5Njc3NiwiZXhwIjoxNjYwNDg4Nzc2fQ.85W-Ht5WqQDUweZ78jsc4xz5VA3wLVu2LvUQ8OVQ4NE
+PUT http://localhost:5000/api/users/62d0f0b67f8092abf3623d6a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDBlZDcyMmY2ZDMzNDRkMjRiNjZjNCIsImlhdCI6MTY2MTk2Mzc0NCwiZXhwIjoxNjY0NTU1NzQ0fQ.aFwINC_7rIQgFV3rsLXkG5PsdATiMJ0OJCDYDv0X5VI
 content-Type: application/json
 
 {
-    "name": "a",
-    "email": "a@gmail.com",
-    "password": "a",
+    "name": "ram",
+    "email": "ram@gmail.com",
+    "password": "ram",
     "isAdmin":true
 }
 
